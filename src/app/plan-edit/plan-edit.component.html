@@ -1,24 +1,24 @@
-<form>
+<form [formGroup]="planForm" (ngSubmit)="save()">
     <label class="field">
-        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="name" placeholder="Name" formControlName="name">
     </label>
 
     <label class="field">
-        <textarea name="description" placeholder="Description"></textarea>
+        <textarea name="description" placeholder="Description" formControlName="description"></textarea>
     </label>
 
     <label class="field">
-        <input type="datetime-local" name="startTime">
+        <input type="datetime-local" name="startTime" formControlName="startTime" [max]="planForm.value.endTime">
     </label>
     <label class="field">
-        <input type="datetime-local" name="endTime">
+        <input type="datetime-local" name="endTime" formControlName="endTime" [min]="planForm.value.startTime">
     </label>
 
     <div class="field">
-        <input type="text" name="place" placeholder="Place">
+        <input type="text" name="place" placeholder="Place" formControlName="place">
     </div>
 
     <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
 </form>
 
-<p>Created At: 2024/11/02 08:30:20, Updated At: 2024/11/02 08:30:20</p>
+<small>Created At: {{plan.createdAt}}, Updated At: {{plan.updatedAt}}</small>

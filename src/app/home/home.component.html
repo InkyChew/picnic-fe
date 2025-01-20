@@ -1,1 +1,12 @@
-<p>home works!</p>
+<swiper-container class="plans-container" space-between="16" slides-per-view="auto">
+    <swiper-slide class="plan-slide">
+        <div class="plan">
+            <a routerLink="/plan-edit">+</a>
+        </div>
+    </swiper-slide>
+    <swiper-slide class="plan-slide">
+        <div class="plan">
+            <a [routerLink]="['/plan', 1]">1</a>
+        </div>
+    </swiper-slide>
+</swiper-container>
