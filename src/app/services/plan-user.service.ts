@@ -11,6 +11,6 @@ export class PlanUserService {
   constructor(private _http: HttpClient, private _env: EnvService) { }
 
   getUserPlans(userId: number) {
-    return this._http.get<PlanUser[]>(`${this._env.APIOption.planEndpoint}/${userId}`);
+    return this._http.get<PlanUser[]>(`${this._env.APIOption.planUserEndpoint}/${userId}`);
   }
 }

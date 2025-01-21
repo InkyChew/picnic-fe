@@ -1,12 +1,17 @@
 <swiper-container class="plans-container" space-between="16" slides-per-view="auto">
-    <swiper-slide class="plan-slide">
-        <div class="plan">
+    <swiper-slide class="plan-slide add">
+        <div>
             <a routerLink="/plan-edit">+</a>
         </div>
     </swiper-slide>
+    @for (pu of planUserList; track $index)
+    {
     <swiper-slide class="plan-slide">
-        <div class="plan">
-            <a [routerLink]="['/plan', 1]">1</a>
-        </div>
+        <article class="card">
+            <h3><a [routerLink]="['/plan', pu.planId]">{{pu.plan!.name}}</a></h3>
+            <p>{{pu.plan!.startTime | date: 'yyyy/MM/dd HH:mm'}} - {{pu.plan!.endTime | date: 'yyyy/MM/dd HH:mm'}}</p>
+            <p>daan park</p>
+        </article>
     </swiper-slide>
+    }
 </swiper-container>

@@ -1,0 +1,25 @@
+.plan-slide {
+    max-width: 300px;
+    height: 180px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5em 0;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.plan-slide.add {
+    max-width: 180px;
+}
+.add a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    text-decoration: none;
+}
