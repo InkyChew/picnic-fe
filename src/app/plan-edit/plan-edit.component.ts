@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Plan, PlanUser } from '../models/plan';
+import { Plan } from '../models/plan';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlanService } from '../services/plan.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { DateService } from '../services/date.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-plan-edit',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe],
   schemas: [],
   templateUrl: './plan-edit.component.html',
   styleUrl: './plan-edit.component.scss'
@@ -20,40 +23,52 @@ export class PlanEditComponent {
     description: [''],
     startTime: ['', [Validators.required]],
     endTime: ['', Validators.required],
-    place: ['', Validators.required],
+    placeId: [0, Validators.required],
   });
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
     private _fb: FormBuilder,
-    private _service: PlanService) {
+    private _service: PlanService,
+    private _dateService: DateService) {
     this._route.params.subscribe(param => {
       const id = +param['id'];
-      if(id) this.getPlan(id);
+      if (id) this.getPlan(id);
     });
   }
 
   getPlan(id: number) {
-    this._service.getPlan(id).subscribe(res => {
-      
-      const x = {...res, startTime: new Date(res.startTime).toISOString()};
-      this.planForm.patchValue(x);
-      
-      console.log(x);
-      
+    this._service.getPlan(id).subscribe({
+      next: (res) => {
+        this.plan = res;
+        res.startTime = this._dateService.datetimeLocal(res.startTime);
+        res.endTime = this._dateService.datetimeLocal(res.endTime);
+        this.planForm.patchValue(res);
+      },
+      error: (err: HttpErrorResponse) => {
+        const msg = err.status == 404 ? 'Plan Not Found.' : err.message;
+        alert(msg);
+        this._router.navigate(['/']);
+      }
     });
   }
 
   save() {
-    this.plan = {...this.planForm.value};
-    // this.plan.users = [new PlanUser(0, 1)]
-    console.log(this.plan);
-    console.log(this.planForm.valid);
-    // if(this.planForm.valid) {
-    //   const save$ = this.plan.id ? this._service.putPlan(this.plan) : this._service.postPlan(this.plan);
-    //   save$.subscribe(res => {
-    //     this._router.navigate(['/plan', res.id]);
-    //   });
-    // }
+    if (this.planForm.valid) {
+      const updatedPlan = { ...this.plan, ...this.planForm.value };
+
+      const save$ = this.plan.id
+        ? this._service.putPlan(updatedPlan)
+        : this._service.postPlan(updatedPlan);
+
+      save$.subscribe({
+        next: (res) => {
+          this._router.navigate(['/plan', res.id]);
+        },
+        error: (err) => {
+          console.error('Error saving plan', err);
+        }
+      });
+    }
   }
 }

@@ -1,22 +1,18 @@
+@if(plan) {
+
 <section>
     <div class="info">
-        <h2>Time with wild</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque rem vitae non cumque suscipit sint
-            praesentium
-            adipisci optio vel ipsam earum voluptate obcaecati voluptatem beatae inventore, quaerat dolore, dolorem
-            eligendi
-            corporis facilis temporibus et porro ea! Nostrum corrupti rem dolorum reiciendis a? Blanditiis porro
-            aliquam, et
-            architecto maiores numquam iure!</p>
+        <h2>{{plan.name}}</h2>
+        <p>{{plan.description}}</p>
 
         <p>
-            <span>Time:</span> 2024/12/01 15:00 - 2024/12/01 17:00
+            <span>Time:</span> {{plan.startTime | date: 'yyyy/MM/dd HH:mm'}} - {{plan.endTime| date: 'yyyy/MM/dd HH:mm'}}
         </p>
         <p>
             <span>Place:</span> Daan park
         </p>
 
-        <a [routerLink]="['/plan-edit', 1]"><i class="fa-solid fa-pencil"></i></a>
+        <a [routerLink]="['/plan-edit', plan.id]"><i class="fa-solid fa-pencil"></i></a>
     </div>
 
     <div class="card">
@@ -138,3 +134,4 @@
         </div>
     </div>
 </section>
+}

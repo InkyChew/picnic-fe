@@ -15,14 +15,21 @@ export class PlanService {
   }
 
   postPlan(plan: Plan) {
+    this._formatPlanTime(plan);
     return this._http.post<Plan>(this._env.APIOption.planEndpoint, plan);
   }
 
   putPlan(plan: Plan) {
+    this._formatPlanTime(plan);
     return this._http.put<Plan>(this._env.APIOption.planEndpoint, plan);
   }
 
   deletePlan(id: number) {
     return this._http.delete(`${this._env.APIOption.planEndpoint}/${id}`);
+  }
+
+  private _formatPlanTime(plan: Plan) {
+    plan.startTime = new Date(plan.startTime).toISOString();
+    plan.endTime = new Date(plan.endTime).toISOString();
   }
 }

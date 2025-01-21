@@ -15,10 +15,10 @@
     </label>
 
     <div class="field">
-        <input type="text" name="place" placeholder="Place" formControlName="place">
+        <input type="text" name="place" placeholder="Place" formControlName="placeId">
     </div>
 
     <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
 </form>
 
-<small>Created At: {{plan.createdAt}}, Updated At: {{plan.updatedAt}}</small>
+<small>Created At: {{plan.createdAt | date: 'yyyy/MM/dd HH:mm:ss'}}, Updated At: {{plan.updatedAt | date: 'yyyy/MM/dd HH:mm:ss'}}</small>
