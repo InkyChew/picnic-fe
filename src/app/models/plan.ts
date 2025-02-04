@@ -14,23 +14,28 @@ export class Plan {
     users?: PlanUser[];
 }
 
-export interface PlanItem {
-    id: number;
+export class PlanItem {
+    id: number = 0;
     planId: number;
     userId: number;
-    name: string;
-    note: string;
-    prepared: boolean;
-    createdAt: string;
-    updatedAt: string;
-    plan: Plan | null;
+    name: string = '';
+    note: string = '';
+    prepared: boolean = false;
+    price: number = 0;
+    createdAt?: string;
+    updatedAt?: string;
+
+    constructor(pId: number, uId: number) {
+        this.planId = pId;
+        this.userId = uId;
+    }
 }
 
-export interface PlanFood extends PlanItem {
+export class PlanFood extends PlanItem {
 
 }
 
-export interface PlanTool extends PlanItem {
+export class PlanTool extends PlanItem {
 
 }
 

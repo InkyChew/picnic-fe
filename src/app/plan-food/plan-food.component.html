@@ -1,0 +1,38 @@
+<section>
+    自己做 沙拉
+    商店買 沙拉
+    + 食譜採用
+    訂購
+
+    <ul>
+        @for (food of foods; track $index) {
+            <li>
+                <label for="">{{ food.name }}</label>
+                <input type="checkbox" name="" id="prepared">
+                <span>{{ food.price }}</span>
+            </li>
+        }
+    </ul>
+
+    <!-- <ul>
+        <li>沙拉</li>
+        <li>披薩</li>
+        <li>義大利麵</li>
+        <li>漢堡</li>
+        <li>飯糰</li>
+        <li>麵包</li>
+        <li>蛋糕</li>
+        <li>派餅</li>
+        <li>燒烤</li>
+        <li>油炸</li>
+        <li>素食</li>
+        <li>奶</li>
+        <li>茶</li>
+        <li>果汁</li>
+        <li>咖啡</li>
+        <li>汽水</li>
+        <li>水</li>
+        <li>水果</li>
+        <li>堅果</li>
+    </ul> -->
+</section>

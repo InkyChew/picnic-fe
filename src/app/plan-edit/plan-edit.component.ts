@@ -19,11 +19,11 @@ export class PlanEditComponent {
 
   plan: Plan = new Plan();
   planForm: FormGroup = this._fb.group({
-    name: ['', Validators.required],
-    description: [''],
-    startTime: ['', [Validators.required]],
-    endTime: ['', Validators.required],
-    placeId: [0, Validators.required],
+    name: [this.plan.name, Validators.required],
+    description: [this.plan.description],
+    startTime: [this.plan.startTime, [Validators.required]],
+    endTime: [this.plan.endTime, Validators.required],
+    placeId: [this.plan.placeId, Validators.required],
   });
 
   constructor(private _route: ActivatedRoute,

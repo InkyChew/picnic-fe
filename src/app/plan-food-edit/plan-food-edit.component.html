@@ -1,0 +1,22 @@
+<form [formGroup]="foodForm" (ngSubmit)="save()">
+    <label class="field">
+        <input type="text" name="name" placeholder="Name" formControlName="name">
+    </label>
+
+    <label class="field">
+        <textarea name="note" placeholder="Note" formControlName="note"></textarea>
+    </label>
+
+    <div class="field">
+        <select name="preparer">
+            <option value="1">Inky</option>
+            <option value="2">Sally</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <input type="number" name="price" placeholder="Price" formControlName="price">
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+</form>
