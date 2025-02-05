@@ -17,7 +17,6 @@ export class Plan {
 export class PlanItem {
     id: number = 0;
     planId: number;
-    userId: number;
     name: string = '';
     note: string = '';
     prepared: boolean = false;
@@ -25,18 +24,29 @@ export class PlanItem {
     createdAt?: string;
     updatedAt?: string;
 
-    constructor(pId: number, uId: number) {
+    constructor(pId: number) {
         this.planId = pId;
-        this.userId = uId;
     }
 }
 
 export class PlanFood extends PlanItem {
-
+    foodPreparers: PreparerFood[] = [];
+}
+export class PlanTool extends PlanItem {
+    toolPreparers: PreparerTool[] = [];
+}
+export interface PreparerFood {
+    userId: number;
+    user: User | null;
+    planFoodId: number;
+    planFood: PlanFood | null;
 }
 
-export class PlanTool extends PlanItem {
-
+export interface PreparerTool {
+    userId: number;
+    user: User | null;
+    planToolId: number;
+    planTool: PlanTool | null;
 }
 
 export class PlanUser {

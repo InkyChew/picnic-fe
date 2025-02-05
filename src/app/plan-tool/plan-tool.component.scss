@@ -1,0 +1,26 @@
+.drag-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    min-height: 50px;
+    box-sizing: border-box;
+}
+
+.drag-delete {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.drag-delete .fa-trash {
+    display: block;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+    max-width: 155px;
+    color: white;
+    background-color: red;
+}

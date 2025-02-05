@@ -13,11 +13,11 @@ import { PlanFood } from '../models/plan';
 })
 export class PlanFoodEditComponent {
 
-  food: PlanFood = new PlanFood(1, 1);
+  food: PlanFood = new PlanFood(1);
   foodForm: FormGroup = this._fb.group({
     name: [this.food.name, Validators.required],
     note: [this.food.note],
-    preparer: [this.food.userId, Validators.required],
+    preparer: ['', Validators.required],
     price: [this.food.price, Validators.min(0)],
   });
 
