@@ -1,0 +1,26 @@
+<mat-form-field class="preparer-chip-list">
+    <mat-label class="capitalize">{{label}}</mat-label>
+    <mat-chip-grid #chipGrid [formControl]="tagCtrl" [attr.aria-label]="label + ' selection'">
+        @for (tag of tags(); track tag) {
+        <mat-chip-row (removed)="remove(tag)">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </mat-chip-row>
+        }
+    </mat-chip-grid>
+    <input placeholder="Search..." #sInput [(ngModel)]="searchInput" [matChipInputFor]="chipGrid"
+        [matAutocomplete]="auto" (matChipInputTokenEnd)="inputEnd($event)" />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        @for (item of filteredOptions(); track item) {
+        <mat-option [value]="item" [ngClass]="{'selected' : isTagSelected(item)}">{{item}}</mat-option>
+        }
+    </mat-autocomplete>
+
+    <mat-error class="capitalize">{{label}} is required.</mat-error>
+
+    @if(maxChip) {
+        <mat-hint align="end">{{tags().length}}/{{maxChip}}</mat-hint>
+    }
+</mat-form-field>

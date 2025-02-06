@@ -5,7 +5,8 @@
     margin-bottom: 1em;
 }
 
-.field input, .field textarea {
+.field input,
+.field textarea {
     width: 100%;
     padding: 1em;
     box-sizing: border-box;
@@ -15,4 +16,18 @@
 
 textarea {
     resize: vertical;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
