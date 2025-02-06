@@ -19,6 +19,10 @@ export class PlanToolComponent {
 
   tools: any[] = [{name: '123'}, {name: '456'}];
 
+  getTools() {
+    
+  }
+
   drop(e: CdkDragDrop<any, any>): any {
     console.log(e);
     if(e.distance.x < -150) {

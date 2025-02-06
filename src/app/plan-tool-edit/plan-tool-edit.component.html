@@ -1,1 +1,21 @@
-<p>plan-tool-edit works!</p>
+<form [formGroup]="toolForm" (ngSubmit)="save()">
+    <label class="field">
+        <input type="text" name="name" placeholder="Name" formControlName="name">
+    </label>
+
+    <label class="field">
+        <textarea name="note" placeholder="Note" formControlName="note"></textarea>
+    </label>
+
+    <m-tag-box controlName="preparer" [dataSource]="participantNames()"></m-tag-box>
+
+    <div class="field">
+        <input type="number" name="price" placeholder="Price" formControlName="price">
+    </div>
+
+    <div class="field">
+        <input type="number" name="count" placeholder="Count" formControlName="count">
+    </div>
+
+    <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+</form>

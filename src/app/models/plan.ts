@@ -21,6 +21,7 @@ export class PlanItem {
     note: string = '';
     prepared: boolean = false;
     price: number = 0;
+    count: number = 1;
     createdAt?: string;
     updatedAt?: string;
 
