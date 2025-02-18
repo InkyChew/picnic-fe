@@ -12,6 +12,8 @@ export class EnvService {
     return {
       planEndpoint: `${environment.api.url}${environment.api.endpoint.plan}`,
       planUserEndpoint: `${environment.api.url}${environment.api.endpoint.planUser}`,
+      planFoodEndpoint: `${environment.api.url}${environment.api.endpoint.planFood}`,
+      planToolEndpoint: `${environment.api.url}${environment.api.endpoint.planTool}`,
     }
   }
 }
@@ -19,4 +21,6 @@ export class EnvService {
 interface IRestAPIOption {
   planEndpoint: string,
   planUserEndpoint: string,
+  planFoodEndpoint: string,
+  planToolEndpoint: string,
 }

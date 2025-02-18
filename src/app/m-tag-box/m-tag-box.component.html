@@ -1,4 +1,4 @@
-<mat-form-field class="preparer-chip-list">
+<mat-form-field class="preparer-chip-list" appearance="outline">
     <mat-label class="capitalize">{{label}}</mat-label>
     <mat-chip-grid #chipGrid [formControl]="tagCtrl" [attr.aria-label]="label + ' selection'">
         @for (tag of tags(); track tag) {
@@ -21,6 +21,6 @@
     <mat-error class="capitalize">{{label}} is required.</mat-error>
 
     @if(maxChip) {
-        <mat-hint align="end">{{tags().length}}/{{maxChip}}</mat-hint>
+    <mat-hint align="end">{{tags().length}}/{{maxChip}}</mat-hint>
     }
 </mat-form-field>

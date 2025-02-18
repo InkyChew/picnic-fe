@@ -12,9 +12,10 @@ export const routes: Routes = [
     { path: 'plan/:id', component: PlanComponent, pathMatch: 'full' },
     { path: 'plan-edit', component: PlanEditComponent, pathMatch: 'full' },
     { path: 'plan-edit/:id', component: PlanEditComponent, pathMatch: 'full' },
-    { path: 'plan-food/:id', component: PlanFoodComponent, pathMatch: 'full' },
+    { path: 'plan-food/:planId', component: PlanFoodComponent, pathMatch: 'full' },
     { path: 'plan-food-edit', component: PlanFoodEditComponent, pathMatch: 'full' },
     { path: 'plan-food-edit/:id', component: PlanFoodEditComponent, pathMatch: 'full' },
-    { path: 'plan-tool/:id', component: PlanToolComponent, pathMatch: 'full' },
+    { path: 'plan-tool/:planId', component: PlanToolComponent, pathMatch: 'full' },
+    { path: 'plan-tool-edit', component: PlanToolEditComponent, pathMatch: 'full' },
     { path: 'plan-tool-edit/:id', component: PlanToolEditComponent, pathMatch: 'full' },
 ];

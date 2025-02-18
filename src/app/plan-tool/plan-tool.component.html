@@ -1,12 +1,13 @@
 <section>
     <div class="drag-list" cdkDropList cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+        <a [routerLink]="['/plan-tool-edit']" [queryParams]="{ planId }">+</a>
         @for (tool of tools; track $index) {
         <div class="drag-box" cdkDragLockAxis="x" cdkDrag>
             <div class="drag-content">
                 <label>isPrepared?
                     <input type="checkbox" id="prepared">
                 </label>
-                <a [routerLink]="['/plan-tool-edit', tool.id]">{{ tool.name }}</a>
+                <a [routerLink]="['/plan-tool-edit', tool.id]" [queryParams]="{ planId }">{{ tool.name }}</a>
             </div>
             <div class="drag-delete" *cdkDragPlaceholder>
                 <i class="fa-solid fa-trash"></i>

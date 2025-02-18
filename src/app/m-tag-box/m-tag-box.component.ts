@@ -33,13 +33,12 @@ export class MTagBoxComponent {
 
   readonly announcer = inject(LiveAnnouncer);
 
-  constructor(private _parent: FormGroupDirective) {
-    
-  }
+  constructor(private _parent: FormGroupDirective) { }
   
   ngOnInit() {
     if (!this.label) this.label = this.controlName;
     this.tagCtrl = this._parent.control.get(this.controlName) as FormControl<string[]>;
+    this.tags.set(this.tagCtrl.value);
     this.tagCtrl.valueChanges.subscribe(v => this.tags.set(v));
     if(this.maxChip) this.tagCtrl.addValidators(this.maxValidator(this.maxChip));
   }
