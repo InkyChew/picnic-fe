@@ -1,22 +1,25 @@
 <form [formGroup]="foodForm" (ngSubmit)="save()">
-    <label class="field">
-        <input type="text" name="name" placeholder="Name" formControlName="name">
-    </label>
+    <mat-form-field class="field">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" formControlName="name">
+    </mat-form-field>
 
-    <label class="field">
-        <textarea name="note" placeholder="Note" formControlName="note"></textarea>
-    </label>
+    <mat-form-field class="field">
+        <mat-label>Note</mat-label>
+        <textarea matInput name="note" formControlName="note"></textarea>
+    </mat-form-field>
 
-    <div class="field">
-        <select name="preparer">
-            <option value="1">Inky</option>
-            <option value="2">Sally</option>
-        </select>
-    </div>
+    <m-tag-box controlName="preparer" [dataSource]="participantNames()"></m-tag-box>
 
-    <div class="field">
-        <input type="number" name="price" placeholder="Price" formControlName="price">
-    </div>
+    <mat-form-field class="field">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" name="price" formControlName="price">
+    </mat-form-field>
 
-    <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+    <mat-form-field class="field">
+        <mat-label>Count</mat-label>
+        <input matInput type="number" name="count" formControlName="count">
+    </mat-form-field>
+
+    <button mat-flat-button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
 </form>

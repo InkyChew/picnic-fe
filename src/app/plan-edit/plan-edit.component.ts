@@ -6,11 +6,15 @@ import { PlanService } from '../services/plan.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DateService } from '../services/date.service';
 import { DatePipe } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-plan-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, DatePipe],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, DatePipe],
   schemas: [],
   templateUrl: './plan-edit.component.html',
   styleUrl: './plan-edit.component.scss'

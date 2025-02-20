@@ -1,23 +1,5 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
-.field {
-    display: block;
-    margin-bottom: 1em;
-}
-
-.field input,
-.field textarea {
-    width: 100%;
-    padding: 1em;
-    box-sizing: border-box;
-    border: 1px solid;
-    border-radius: 8px;
-}
-
-textarea {
-    resize: vertical;
-}
-
 html,
 body {
     height: 100%;
@@ -30,4 +12,19 @@ body {
 
 .capitalize {
     text-transform: capitalize;
+}
+
+/*
+ * Form
+ */
+form .field {
+    width: 100%;
+}
+
+form .field .mdc-text-field__input::-webkit-calendar-picker-indicator {
+    display: block !important;
+}
+
+textarea {
+    resize: vertical;
 }

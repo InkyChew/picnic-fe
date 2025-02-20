@@ -1,24 +1,30 @@
 <form [formGroup]="planForm" (ngSubmit)="save()">
-    <label class="field">
-        <input type="text" name="name" placeholder="Name" formControlName="name">
-    </label>
+    <mat-form-field class="field">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" formControlName="name">
+    </mat-form-field>
 
-    <label class="field">
-        <textarea name="description" placeholder="Description" formControlName="description"></textarea>
-    </label>
+    <mat-form-field class="field">
+        <mat-label>Description</mat-label>
+        <textarea matInput name="description" formControlName="description"></textarea>
+    </mat-form-field>
 
-    <label class="field">
-        <input type="datetime-local" name="startTime" formControlName="startTime" [max]="planForm.value.endTime">
-    </label>
-    <label class="field">
-        <input type="datetime-local" name="endTime" formControlName="endTime" [min]="planForm.value.startTime">
-    </label>
+    <mat-form-field class="field">
+        <mat-label>Start Time</mat-label>
+        <input matInput type="datetime-local" name="startTime" formControlName="startTime" [max]="planForm.value.endTime">
+    </mat-form-field>
 
-    <div class="field">
-        <input type="text" name="place" placeholder="Place" formControlName="placeId">
-    </div>
+    <mat-form-field class="field">
+        <mat-label>End Time</mat-label>
+        <input matInput type="datetime-local" name="endTime" formControlName="endTime" [min]="planForm.value.startTime">
+    </mat-form-field>
 
-    <button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+    <mat-form-field class="field">
+        <mat-label>Place</mat-label>
+        <input matInput name="place" formControlName="placeId">
+    </mat-form-field>
+
+    <button mat-flat-button type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
 </form>
 
 <small>Created At: {{plan.createdAt | date: 'yyyy/MM/dd HH:mm:ss'}}, Updated At: {{plan.updatedAt | date: 'yyyy/MM/dd HH:mm:ss'}}</small>

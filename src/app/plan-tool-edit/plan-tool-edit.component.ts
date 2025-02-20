@@ -5,11 +5,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MTagBoxComponent } from '../m-tag-box/m-tag-box.component';
 import { PlanToolService } from '../services/plan-tool.service';
 import { User } from '../models/user';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-plan-tool-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, MTagBoxComponent],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, MTagBoxComponent],
   templateUrl: './plan-tool-edit.component.html',
   styleUrl: './plan-tool-edit.component.scss'
 })
@@ -75,7 +79,7 @@ export class PlanToolEditComponent {
 
       save$.subscribe({
         next: (res) => {
-          this._router.navigate(['/plan-tool', res.id]);
+          this.goBack();
         },
         error: (err) => {
           console.error('Error saving tool', err);
