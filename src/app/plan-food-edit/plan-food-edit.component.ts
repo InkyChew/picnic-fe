@@ -37,12 +37,12 @@ export class PlanFoodEditComponent {
     private _router: Router,
     private _fb: FormBuilder,
     private _service: PlanFoodService) {
-    this._route.params.subscribe(qp => {
-      this.planId = qp['planId'];
+    this._route.params.subscribe(p => {
+      this.planId = p['planId'];
     });
 
-    this._route.params.subscribe(p => {
-      const id = +p['id'];
+    this._route.queryParams.subscribe(qp => {
+      const id = +qp['id'];
       if (id) this.getPlanFood(id);
     });
   }

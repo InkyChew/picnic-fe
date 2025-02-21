@@ -20,29 +20,30 @@ import { MatInputModule } from '@angular/material/input';
 export class PlanToolEditComponent {
 
   planId: number = 0;
-  tool: PlanTool = new PlanTool(this.planId);
+  tool?: PlanTool;
   participants: WritableSignal<PlanUser[]> = signal([]);
   readonly participantNames = computed(() => this.participants().map(p => p.user!.name));
   readonly preparers = computed(() => this.participants().filter(p => this.toolForm.value.preparer.includes(p.user!.name)));
 
   toolForm: FormGroup = this._fb.group({
-    name: [this.tool.name, Validators.required],
-    note: [this.tool.note],
+    name: ['', Validators.required],
+    note: [''],
     preparer: [[], Validators.required],
-    price: [this.tool.price, Validators.min(0)],
-    count: [this.tool.count, Validators.min(1)],
+    price: [0, Validators.min(0)],
+    count: [1, Validators.min(1)],
   });
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
     private _fb: FormBuilder,
     private _service: PlanToolService) {
-    this._route.queryParams.subscribe(qp => {
-      this.planId = qp['planId'];
+    this._route.params.subscribe(p => {
+      this.planId = +p['planId'];
+      this.tool = new PlanTool(this.planId);
     });
 
-    this._route.params.subscribe(p => {
-      const id = +p['id'];
+    this._route.queryParams.subscribe(qp => {
+      const id = +qp['id'];
       if (id) this.getPlanTool(id);
     });
   }
@@ -70,7 +71,7 @@ export class PlanToolEditComponent {
   }
 
   save() {
-    if (this.toolForm.valid) {
+    if (this.tool && this.toolForm.valid) {
       const updatedPlan = { ...this.tool, ...this.toolForm.value };
 
       const save$ = this.tool.id

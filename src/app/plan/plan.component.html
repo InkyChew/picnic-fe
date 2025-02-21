@@ -12,7 +12,7 @@
             <span>Place:</span> Daan park
         </p>
 
-        <a [routerLink]="['/plan-edit', plan.id]"><i class="fa-solid fa-pencil"></i></a>
+        <a routerLink="/plan-edit" [queryParams]="{ id: plan.id }"><i class="fa-solid fa-pencil"></i></a>
     </div>
 
     <div class="card">
@@ -67,54 +67,28 @@
                     </swiper-slide>
                 </swiper-container>
             </div>
-            <div class="trailing">
-                <div class="icon"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
         </div>
     </div>
 
-    <div class="card">
-        <div class="list-item">
-            <div class="leading">
-                <span class="icon"><i class="fa-solid fa-pizza-slice"></i>
-                </span>
-            </div>
-            <div class="content">
-                <h3 class="title">Food</h3>
-                <div class="progress-container">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar" style="width: 50%"></div>
-                    </div>
-                    <span class="progress-text">5 / 10</span>
-                </div>
-            </div>
-            <div class="trailing">
-                <div class="icon"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
-        </div>
-    </div>
+    <div class="prepare">
+        <!-- <h3 class="title">Food</h3> -->
+        <a class="basket" [routerLink]="['/plan-food', plan.id]">
+            <span class="icon"><i class="fa-solid fa-pizza-slice"></i></span>
+            <span class="progress-text">5 / 10</span>
+            <div class="progress-bar" style="height: 50%"></div>
+        </a>
 
-    <div class="card">
-        <div class="list-item">
-            <div class="leading">
+        <!-- <h3 class="title">Tool</h3> -->
+        <a class="basket" [routerLink]="['/plan-tool', plan.id]">
+            <div class="basket-content">
                 <span class="icon"><i class="fa-solid fa-basket-shopping"></i></span>
+                <span class="progress-text">3 / 10</span>
             </div>
-            <div class="content">
-                <h3 class="title">Tool</h3>
-                <div class="progress-container">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar" style="width: 50%"></div>
-                    </div>
-                    <span class="progress-text">5 / 10</span>
-                </div>
-            </div>
-            <div class="trailing">
-                <div class="icon"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
-        </div>
+            <div class="progress-bar" style="height: 30%"></div>
+        </a>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
         <div class="list-item">
             <div class="leading">
                 <span class="icon"><i class="fa-solid fa-masks-theater"></i></span>
@@ -132,6 +106,6 @@
                 <div class="icon"><i class="fa-solid fa-angle-right"></i></div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 }

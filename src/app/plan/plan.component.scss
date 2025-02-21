@@ -15,8 +15,9 @@
 }
 
 .card {
+    width: 100%;
     background-color: white;
-    border-radius: 12px;
+    border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1em;
     margin-bottom: 1em;
@@ -33,7 +34,7 @@
 }
 
 .icon {
-    font-size: 24px;
+    // font-size: 24px;
     color: #ff5722;
 }
 
@@ -47,22 +48,33 @@
     color: #333;
 }
 
-.progress-container {
+.prepare {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.basket {
     position: relative;
-    margin-top: .5em;
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-content: end;
+    border-radius: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: center;
 }
 
-.progress-bar-bg {
-    width: 100%;
-    background-color: #ffcc80;
-    border-radius: 12px;
-    height: 16px;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #ff5722;
-    border-radius: 12px;
+.basket .icon {
+    position: absolute;
+    top: .5em;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .progress-text {
@@ -70,13 +82,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 14px;
-    color: #333;
 }
 
-.trailing .icon {
-    font-size: 16px;
-    color: #777;
+.progress-bar {
+    width: 100%;
+    background-color: #ffcc80;
+    margin-top: auto;
 }
 
 .avatar-container {

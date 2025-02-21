@@ -35,8 +35,8 @@ export class PlanEditComponent {
     private _fb: FormBuilder,
     private _service: PlanService,
     private _dateService: DateService) {
-    this._route.params.subscribe(param => {
-      const id = +param['id'];
+    this._route.queryParams.subscribe(qp => {
+      const id = +qp['id'];
       if (id) this.getPlan(id);
     });
   }
