@@ -1,26 +1,23 @@
-.time {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.time .split {
-    margin: auto .5em;
-}
-
-.time>.field {
-    width: 0;
-    flex: 1;
-    margin: 0;
-}
-
 .card {
     width: 100%;
-    background-color: white;
-    border-radius: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1em;
     margin-bottom: 1em;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.updateAt {
+    display: inline-block;
+    color: grey;
+    font-size: .75em;
 }
 
 .list-item {
@@ -29,23 +26,14 @@
     justify-content: space-between;
 }
 
-.leading {
-    margin-right: 1em;
-}
-
 .icon {
-    // font-size: 24px;
+    display: inline-block;
     color: #ff5722;
+    text-decoration: none;
 }
 
 .content {
     flex-grow: 1;
-}
-
-.title {
-    font-size: 18px;
-    margin: 0;
-    color: #333;
 }
 
 .prepare {
@@ -57,8 +45,8 @@
 
 .basket {
     position: relative;
-    width: 100px;
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100px;
     display: flex;
     flex-direction: column;
     align-content: end;
@@ -82,6 +70,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: .75em;
+    color: grey;
 }
 
 .progress-bar {
@@ -95,6 +85,7 @@
 }
 
 .avatar-slide {
+    width: 100%;
     max-width: 60px;
     text-align: center;
     display: flex;

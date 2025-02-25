@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Plan } from '../models/plan';
 import { PlanService } from '../services/plan.service';
 import { DatePipe } from '@angular/common';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-plan',
   standalone: true,
-  imports: [RouterModule, DatePipe],
+  imports: [RouterModule, DatePipe, MatTooltipModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './plan.component.html',
   styleUrl: './plan.component.scss'

@@ -1,24 +1,26 @@
 @if(plan) {
-
 <section>
-    <div class="info">
+    <div class="card info">
         <h2>{{plan.name}}</h2>
         <p>{{plan.description}}</p>
 
         <p>
-            <span>Time:</span> {{plan.startTime | date: 'yyyy/MM/dd HH:mm'}} - {{plan.endTime| date: 'yyyy/MM/dd HH:mm'}}
+            <span class="icon"><i class="fa-regular fa-calendar"></i></span> {{plan.startTime | date: 'yyyy/MM/dd HH:mm'}} - {{plan.endTime| date: 'yyyy/MM/dd HH:mm'}}
         </p>
         <p>
-            <span>Place:</span> Daan park
+            <span class="icon"><i class="fa-solid fa-location-dot"></i></span> Daan park
         </p>
 
-        <a routerLink="/plan-edit" [queryParams]="{ id: plan.id }"><i class="fa-solid fa-pencil"></i></a>
+        <p class="edit">
+            <a class="icon" routerLink="/plan-edit" [queryParams]="{ id: plan.id }" matTooltip="Edit"><i class="fa-solid fa-pencil"></i></a>
+            <span class="updateAt">Updated At {{plan.updatedAt | date: 'yyyy/MM/dd HH:mm:ss'}}</span>
+        </p>
     </div>
 
     <div class="card">
         <div class="list-item">
             <div class="content">
-                <h3 class="title"><span class="icon"><i class="fa-solid fa-user"></i></span> Guest (10)</h3>
+                <a class="icon" [routerLink]="['/plan-user', plan.id]" matTooltip="Guest"><i class="fa-solid fa-user"></i>(10)</a>
                 <swiper-container class="avatar-container" space-between="16" slides-per-view="auto">
                     <swiper-slide class="avatar-slide">
                         <div class="circle-avatar">
@@ -71,41 +73,27 @@
     </div>
 
     <div class="prepare">
-        <!-- <h3 class="title">Food</h3> -->
-        <a class="basket" [routerLink]="['/plan-food', plan.id]">
+        <a class="basket" [routerLink]="['/plan-food', plan.id]" matTooltip="Food">
             <span class="icon"><i class="fa-solid fa-pizza-slice"></i></span>
             <span class="progress-text">5 / 10</span>
             <div class="progress-bar" style="height: 50%"></div>
         </a>
 
-        <!-- <h3 class="title">Tool</h3> -->
-        <a class="basket" [routerLink]="['/plan-tool', plan.id]">
+        <a class="basket" [routerLink]="['/plan-tool', plan.id]" matTooltip="Tool">
             <div class="basket-content">
                 <span class="icon"><i class="fa-solid fa-basket-shopping"></i></span>
                 <span class="progress-text">3 / 10</span>
             </div>
             <div class="progress-bar" style="height: 30%"></div>
         </a>
-    </div>
 
-    <!-- <div class="card">
-        <div class="list-item">
-            <div class="leading">
+        <a class="basket" [routerLink]="['/plan-tool', plan.id]" matTooltip="Activity">
+            <div class="basket-content">
                 <span class="icon"><i class="fa-solid fa-masks-theater"></i></span>
+                <span class="progress-text">10 / 10</span>
             </div>
-            <div class="content">
-                <h3 class="title">Activity</h3>
-                <div class="progress-container">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar" style="width: 50%"></div>
-                    </div>
-                    <span class="progress-text">5 / 10</span>
-                </div>
-            </div>
-            <div class="trailing">
-                <div class="icon"><i class="fa-solid fa-angle-right"></i></div>
-            </div>
-        </div>
-    </div> -->
+            <div class="progress-bar" style="height: 100%"></div>
+        </a>
+    </div>
 </section>
 }

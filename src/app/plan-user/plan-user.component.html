@@ -1,0 +1,26 @@
+<div>
+    <ul class="drag-list" cdkDropList cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+        @for (user of users; track user.userId) {
+        <li class="drag-box" cdkDragLockAxis="x" cdkDrag>
+            <div class="drag-content">
+                <div class="user-image">
+                    @if (user.isHost) {
+                    <i class="fa-solid fa-crown"></i>
+                    }
+                    <div class="circle-avatar">
+                        <img class="avatar-image" src="https://picsum.photos/300/200/?random=8">
+                    </div>
+                </div>
+                <div>{{ user.user?.name }}</div>
+
+                <div class="status" [style.--invStt]="styleStatus(user.status)">
+                    {{ user.isHost ? '主辦' : user.status | invStt }}
+                </div>
+            </div>
+            <div class="drag-delete" *cdkDragPlaceholder>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </li>
+        }
+    </ul>
+</div>
