@@ -1,3 +1,7 @@
+.drag-list {
+    padding: 0;
+}
+
 .drag-box {
     display: flex;
     justify-content: space-between;
@@ -32,19 +36,22 @@
     max-width: 155px;
     color: white;
     background-color: red;
+    box-sizing: border-box;
 }
 
 .user-image {
     position: relative;
 }
 
-.circle-avatar {
+.circle-avatar {    
+    position: relative;
     max-width: 60px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: 1px solid #ff5722;
     overflow: hidden;
     background: #FFCC80;
+    box-sizing: border-box;
 }
 
 .fa-crown {

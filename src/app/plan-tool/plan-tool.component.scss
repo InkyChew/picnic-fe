@@ -1,3 +1,7 @@
+.drag-list {
+    padding: 0;
+}
+
 .drag-box {
     display: flex;
     justify-content: space-between;
@@ -5,6 +9,10 @@
     background-color: white;
     min-height: 50px;
     box-sizing: border-box;
+}
+
+.drag-content {
+    display: flex;
 }
 
 .drag-delete {
